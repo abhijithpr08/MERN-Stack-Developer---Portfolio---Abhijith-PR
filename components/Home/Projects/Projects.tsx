@@ -10,7 +10,7 @@ const Projects = () => {
       </h1>
       <div className='w-[70%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mt-16'>
         {/* 1st project */}
-        <div>
+        <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="0">
           <Image src="/images/pic2.jpg" alt='img' width={800} height={650} className='rounded-lg'/> 
           <h1 className='mt-4 text-xl sm:text-2xl font-semibold text-white'>
             Modern Finance Dashboard UI
@@ -18,7 +18,7 @@ const Projects = () => {
           <h1 className='pt-2 font-medium text-white/80'>Apps , UI/UX</h1>
         </div>
         {/* 2nd project */}
-        <div>
+        <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="100">
           <Image src="/images/pic2.jpg" alt='img' width={800} height={650} className='rounded-lg'/> 
           <h1 className='mt-4 text-xl sm:text-2xl font-semibold text-white'>
             Portfolio Website for Creatives
@@ -26,7 +26,7 @@ const Projects = () => {
           <h1 className='pt-2 font-medium text-white/80'>Bradning , Motion</h1>
         </div>
         {/* 3rd project */}
-        <div>
+        <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="200">
           <Image src="/images/pic2.jpg" alt='img' width={800} height={650} className='rounded-lg'/> 
           <h1 className='mt-4 text-xl sm:text-2xl font-semibold text-white'>
             Branding Identity for Startup
@@ -34,7 +34,7 @@ const Projects = () => {
           <h1 className='pt-2 font-medium text-white/80'>Branding , UI/UX</h1>
         </div>
         {/* 4th project */}
-        <div>
+        <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="300">
           <Image src="/images/pic2.jpg" alt='img' width={800} height={650} className='rounded-lg'/> 
           <h1 className='mt-4 text-xl sm:text-2xl font-semibold text-white'>
             SaaS Dashboard Development
