@@ -5,6 +5,9 @@ import Nav from "@/components/Home/Navbar/Nav";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const font= Inter({
   weight:['100','200','300','400','500','600','700','800','900'],
