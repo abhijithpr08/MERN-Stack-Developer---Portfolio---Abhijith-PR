@@ -113,6 +113,33 @@ html {
   left: 100%;
 }
 
+/* Side slides */
+.project-card {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
+/* Center slide */
+.slick-center .project-card {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Alignment Fix */
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+
 /* Mobile timeline adjustments */
 @media (max-width: 1280px) {
   .timeline-line {
