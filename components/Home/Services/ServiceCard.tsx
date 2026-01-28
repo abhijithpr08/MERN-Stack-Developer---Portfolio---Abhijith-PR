@@ -9,8 +9,8 @@ type Props = {
 
 const ServiceCard = ({description,icon,name}:Props) => {
   return (
-    <div>
-      <Image src={icon} alt='img' width={60} height={60}/>
+    <div className='flex flex-col items-center text-center'>
+      <Image src={icon} alt='img' width={150} height={150} className='h-30'/>
       <h1 className='mt-6 text-xl md:text-2xl font-bold text-gray-200'>
         {name}
       </h1>

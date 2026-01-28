@@ -11,12 +11,13 @@ const Hero = () => {
 
         <ParticlesHero/>
 
-        <div className='relative z-10 flex flex-col items-center'>
+        <div className='relative z-10 flex flex-col items-center mt-15'>
+            <div className='absolute z-[-10] top-8 w-screen h-58 bg-amber-50/5'></div>
             <Image 
-             src="/images/heroimg.png"
+             src="/images/my.png"
              alt='heroImage'
-             width={150}
-             height={150}
+             width={250}
+             height={250}
              className='rounded-full border-8 border-[#0c0c48aa]'
              data-aos="fade-up"
              />

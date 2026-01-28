@@ -14,8 +14,8 @@ const Resume = () => {
                     My Work <span className='text-cyan-200'>Experience</span>
                  </h1>
                  <div className='mt-10' data-aos="zoom-in" data-aos-anchor-placement="top-center">
-                    <ResumeCard Icon={FaCodepen} role="Full-Stack Developer"/>
-                    <ResumeCard Icon={FaReact} role="Frond-End Developer"/>
+                    <ResumeCard Icon={FaCodepen} role="MERN Stack Developer Intern"/>
+                    <ResumeCard Icon={FaReact} role="Full-Stack Developer Intern"/>
                     <ResumeCard Icon={BsDatabase} role="Backend Developer"/>
                  </div>
             </div>
