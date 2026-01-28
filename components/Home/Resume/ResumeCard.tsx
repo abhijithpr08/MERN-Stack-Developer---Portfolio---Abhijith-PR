@@ -1,35 +1,35 @@
+'use client'
 import React from 'react'
 import { IconType } from 'react-icons';
 
 type Props={
     role:string;
     Icon:IconType;
-    date?:string
+    date?:string;
+    description:string;
 }
 
-const ResumeCard = ({Icon, role, date}:Props) => {
+const ResumeCard = ({Icon, role, date, description}:Props) => {
   return (
-    <div className='mb-6'>
-        <div className='flex items-start space-x-6 bg-blue-950/20 transition-all duration-300 p-4 sm:p-8
-        rounded-md'>
-            <div className='sm:w-14 sm:h-14 w-10 h-10 bg-blue-950 rounded-full flex items-center justify-center flex-col'>
-                <Icon className='sm:w-6 sm:h-8 w-6 h-6 text-white'/>
-            </div>
-            <div className='flex-1'>
-                {date && (
-                    <h1 className='mb-2 sm:px-6 sm:py-1.5 px-4 py-1 rounded-full bg-gray-200 text-gray-600 w-fit
-                    sm:text-lg text-sm font-bold'>
-                        {date}
-                    </h1>
-                )}
-                <h1 className='text-gray-200 text-xl sm:text-2xl font-semibold'>
-                    {role}
-                </h1>
-                <p className='text-gray-300 text-sm sm:text-base pt-3'>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque a delectus minima ab, quae, tempore distinctio asperiores non suscipit incidunt assumenda ea fugiat vitae. Cupiditate dolorum voluptatibus non ipsam quam.
-                </p>
-            </div>
-        </div>
+    <div
+      className='flex items-start space-x-3 bg-blue-950/30 hover:bg-blue-950/50 transition-all duration-300 p-3 sm:p-4 rounded-lg border border-cyan-900/30 hover:border-cyan-400/50'
+    >
+      <div className='w-9 h-9 sm:w-10 sm:h-10 bg-linear-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20'>
+        <Icon className='w-4 h-4 sm:w-5 sm:h-5 text-white'/>
+      </div>
+      <div className='flex-1 min-w-0'>
+        {date && (
+          <span className='inline-block mb-1.5 px-2.5 py-0.5 rounded-full bg-cyan-400/20 text-cyan-300 text-xs font-medium'>
+            {date}
+          </span>
+        )}
+        <h3 className='text-gray-100 text-sm sm:text-base font-semibold leading-tight'>
+          {role}
+        </h3>
+        <p className='text-gray-400 text-xs sm:text-sm pt-1.5 leading-relaxed'>
+          {description}
+        </p>
+      </div>
     </div>
   )
 }
