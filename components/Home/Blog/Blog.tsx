@@ -8,7 +8,7 @@ const Blog = () => {
         My latest
         <span className="text-cyan-200"> Blogs</span>
       </h1>
-      <div className="ww-[70%] mx-auto grid grid-cols-1 xl:grid-cols-3 xl:gap-4 gap-10 items-center mt-16">
+      <div className="w-[70%] mx-auto grid grid-cols-1 xl:grid-cols-3 xl:gap-4 gap-10 items-center mt-16">
         <div data-aos="fade-right" data-aos-anchor-placement="top-center" data-aos-delay="0">
             <BlogCard image="/images/pic2.jpg" title="Learn how to build an amazing portfolio website using next js"/>
         </div>
