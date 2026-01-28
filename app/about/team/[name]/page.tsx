@@ -1,10 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const TeamDetailsPage = async ({params}) => {
-  const name = (await params).name
-  return (
-    <div>TeamDetailsPage{name}</div>
-  )
+interface PageProps {
+  params: {
+    name: string;
+  };
 }
 
-export default TeamDetailsPage
+const TeamDetailsPage = async ({ params }: PageProps) => {
+  const name = params.name;
+
+  return (
+    <div>TeamDetailsPage {name}</div>
+  );
+};
+
+export default TeamDetailsPage;
