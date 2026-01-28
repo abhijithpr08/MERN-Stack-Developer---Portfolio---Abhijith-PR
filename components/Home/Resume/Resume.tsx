@@ -3,30 +3,30 @@ import React, { useEffect, useRef, useState } from 'react'
 import ResumeCard from './ResumeCard'
 
 const Resume = () => {
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const [lineHeight, setLineHeight] = useState(0);
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const [lineHeight, setLineHeight] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!timelineRef.current) return;
-      
-      const rect = timelineRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const timelineTop = rect.top;
-      const timelineHeight = rect.height;
-      
-      if (timelineTop < windowHeight && rect.bottom > 0) {
-        const visibleStart = Math.max(0, windowHeight - timelineTop);
-        const percentage = Math.min(100, (visibleStart / timelineHeight) * 100);
-        setLineHeight(percentage);
-      }
-    };
+      if (!timelineRef.current) return
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      const rect = timelineRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+      const timelineTop = rect.top
+      const timelineHeight = rect.height
+
+      if (timelineTop < windowHeight && rect.bottom > 0) {
+        const visibleStart = Math.max(0, windowHeight - timelineTop)
+        const percentage = Math.min(100, (visibleStart / timelineHeight) * 100)
+        setLineHeight(percentage)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const TimelineRow = ({ leftCard, rightCard }: { leftCard: React.ReactNode; rightCard: React.ReactNode }) => (
     <div className='relative grid grid-cols-1 xl:grid-cols-[1fr_40px_1fr] gap-2 mb-3'>
@@ -36,17 +36,17 @@ const Resume = () => {
       </div>
       <div className='pl-10 xl:pl-2'>{rightCard}</div>
     </div>
-  );
+  )
 
   const lineStyle = {
     height: `${lineHeight}%`,
     background: 'linear-gradient(to bottom, #22d3ee, #3b82f6, #22d3ee)',
     boxShadow: '0 0 15px rgba(34, 211, 238, 0.5), 0 0 30px rgba(34, 211, 238, 0.3)'
-  };
-  const lineStyleMobile = { ...lineStyle, boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)' };
+  }
 
   return (
     <div id='resume' className='pt-10 pb-16'>
+      {/* Heading */}
       <div className='text-center mb-12'>
         <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
           My <span className='text-cyan-400'>Resume</span>
@@ -56,6 +56,7 @@ const Resume = () => {
         </p>
       </div>
 
+      {/* Desktop Titles */}
       <div className='hidden xl:grid grid-cols-[1fr_40px_1fr] gap-2 w-[90%] lg:w-[80%] mx-auto mb-6'>
         <div className='text-center'><span className='text-cyan-400 font-semibold text-lg'>Work Experience</span></div>
         <div />
@@ -63,18 +64,15 @@ const Resume = () => {
       </div>
 
       <div className='w-[95%] lg:w-[80%] mx-auto'>
-        <div ref={timelineRef} className='relative'>
-          <div className='hidden xl:block absolute left-1/2 -translate-x-1/2 top-0 w-1 h-full bg-cyan-900/30 rounded-full'>
-            <div className='w-full rounded-full transition-all duration-1800 ease-out' style={lineStyle} />
+
+        {/* ================= DESKTOP TIMELINE ================= */}
+        <div ref={timelineRef} className='relative hidden xl:block'>
+
+          {/* Center Line */}
+          <div className='absolute left-1/2 -translate-x-1/2 top-0 w-1 h-full bg-cyan-900/30 rounded-full'>
+            <div className='w-full rounded-full transition-all duration-1000 ease-out' style={lineStyle} />
           </div>
-          <div className='xl:hidden absolute left-[14px] top-0 w-1 h-full bg-cyan-900/30 rounded-full'>
-            <div className='w-full rounded-full transition-all duration-1800 ease-out' style={lineStyleMobile} />
-          </div>
-          <div className='xl:hidden'>
-            {[12, 28, 44, 60, 76].map((pct) => (
-              <div key={pct} className='absolute left-[10px] w-3 h-3 bg-cyan-400 rounded-full border-2 border-slate-900 z-10' style={{ top: `${pct}%` }} />
-            ))}
-          </div>
+
           <TimelineRow
             leftCard={
               <ResumeCard 
@@ -91,6 +89,7 @@ const Resume = () => {
               />
             }
           />
+
           <TimelineRow
             leftCard={
               <ResumeCard 
@@ -107,6 +106,7 @@ const Resume = () => {
               />
             }
           />
+
           <TimelineRow
             leftCard={<div />}
             rightCard={
@@ -119,6 +119,60 @@ const Resume = () => {
           />
 
         </div>
+
+        {/* ================= MOBILE LAYOUT ================= */}
+        <div className="xl:hidden space-y-10">
+
+          {/* Work Experience */}
+          <div>
+            <h2 className="text-xl font-bold text-cyan-400 mb-4 border-l-4 border-cyan-400 pl-3">
+              Work Experience
+            </h2>
+
+            <div className="space-y-4">
+              <ResumeCard 
+                role="MERN Stack Developer Intern"
+                date='Jul 2025 - Present'
+                description="Developed and maintained full-stack web applications using MongoDB, Express.js, React, and Node.js."
+              />
+
+              <ResumeCard 
+                role="Full-Stack Developer Intern"
+                date='Apr 2024 - May 2024'
+                description="Built responsive user interfaces with React and TypeScript. Integrated RESTful APIs and worked on database optimization."
+              />
+            </div>
+          </div>
+
+          {/* Education */}
+          <div>
+            <h2 className="text-xl font-bold text-cyan-400 mb-4 border-l-4 border-cyan-400 pl-3">
+              Education
+            </h2>
+
+            <div className="space-y-4">
+              <ResumeCard 
+                role="Diploma in Information Technology"
+                date='2022 - 2025'
+                description="Government Polytechnic College, Purapuzha"
+              />
+
+              <ResumeCard 
+                role="Higher Secondary Education"
+                date='2022'
+                description="GOVT HSS Muppathadam, Aluva, Kerala"
+              />
+
+              <ResumeCard
+                role="Secondary Education"
+                date='2021'
+                description="GOVT HS West Kadungalloor, Aluva, Kerala"
+              />
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   )
