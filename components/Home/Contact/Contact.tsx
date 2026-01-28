@@ -1,17 +1,28 @@
 "use client";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement | null>(null);
+  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!form.current) return;
+
+    const formData = new FormData(form.current);
+    const name = formData.get("from_name")?.toString().trim();
+    const email = formData.get("from_email")?.toString().trim();
+    const mobile = formData.get("mobile")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
+
+    if (!name || !email || !mobile || !message) {
+      setStatus({ type: "error", message: "All fields are required." });
+      return;
+    }
 
     emailjs
       .sendForm(
@@ -21,11 +32,12 @@ const Contact = () => {
         "k528Mnhy_2EE5Gvgz",
       )
       .then(() => {
-        alert("Message sent successfully");
+        setStatus({ type: "success", message: "Message sent successfully." });
+        form.current?.reset();
       })
       .catch((error) => {
         console.log(error);
-        alert("Failed to send");
+        setStatus({ type: "error", message: "Failed to send. Please try again." });
       });
   };
 
@@ -81,10 +93,22 @@ const Contact = () => {
           data-aos-delay="0"
           className="md:p-10 p-5 bg-[#131332] rounded-lg"
         >
+          {status && (
+            <div
+              className={`mb-4 px-4 py-2 rounded-md text-sm font-medium ${
+                status.type === "success"
+                  ? "text-emerald-300"
+                  : "text-red-300 border"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
           <input
             name="from_name"
             type="text"
             placeholder="Name"
+            required
             className="px-4 py-3.5 bg-[#363659] text-white outline-none rounded-md w-full"
           />
 
@@ -92,6 +116,7 @@ const Contact = () => {
             name="from_email"
             type="email"
             placeholder="Email Address"
+            required
             className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full"
           />
 
@@ -99,12 +124,14 @@ const Contact = () => {
             name="mobile"
             type="text"
             placeholder="Mobile Number"
+            required
             className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full"
           />
 
           <textarea
             name="message"
             placeholder="Your Message"
+            required
             className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full h-[10rem]"
           ></textarea>
 

@@ -52,12 +52,24 @@ const Nav = ({ openNav }: Props) => {
           })}
         </div>
         {/* buttons */}
-        <div className="flex items-center space-x-4">
-          {/* cv button */}
+        <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
+          {/* view resume in new tab */}
+          <a
+            href="/Resume/AbhijithPR_Mern Stack Developer.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              className="px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm lg:px-6 lg:py-3.5 cursor-pointer rounded-lg border border-blue-500 text-blue-300 hover:bg-blue-900/40 transition-all duration-300"
+            >
+              View Resume
+            </button>
+          </a>
+
+          {/* download cv button */}
           <a href="/Resume/AbhijithPR_Mern Stack Developer.pdf" download>
             <button
-              className="px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900
-  transition-all duration-300 text-white flex items-center space-x-2"
+              className="px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm lg:px-8 lg:py-3.5 cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2"
             >
               <BiDownload className="w-5 h-5" />
               <span>Download CV</span>

@@ -12,7 +12,7 @@ const Hero = () => {
         <ParticlesHero/>
 
         <div className='relative z-10 flex flex-col items-center mt-15'>
-            <div className='absolute z-[-10] top-8 w-screen h-58 bg-amber-50/5'></div>
+            <div className='absolute z-[-10] top-8 w-screen h-70 bg-amber-50/5'></div>
             <Image 
              src="/images/my.png"
              alt='heroImage'
