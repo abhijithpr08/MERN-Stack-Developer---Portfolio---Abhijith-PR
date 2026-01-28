@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
@@ -70,18 +70,38 @@ const Contact = () => {
           </div>
           {/* social icons */}
           <div className="flex items-center mt-8 space-x-3">
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-blue-800 transition-all duration-300">
-              <FaFacebookF className="text-white w-6 h-6" />
-            </div>
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-red-600 transition-all duration-300">
-              <FaYoutube className="text-white w-6 h-6" />
-            </div>
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-sky-400 transition-all duration-300">
-              <FaTwitter className="text-white w-6 h-6" />
-            </div>
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-pink-500 transition-all duration-300">
+            <a
+              href="https://github.com/abhijithpr08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900 transition-all duration-300"
+            >
+              <FaGithub className="text-white w-6 h-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abhijith-pr-218198384/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-cyan-800 transition-all duration-300"
+            >
+              <FaLinkedinIn className="text-white w-6 h-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/_abhi.j.ith._?igsh=a2FnbnU4NjdzNDYy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-pink-500 transition-all duration-300"
+            >
               <FaInstagram className="text-white w-6 h-6" />
-            </div>
+            </a>
+            <a
+              href="https://wa.me/6282369345"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-500 transition-all duration-300"
+            >
+              <FaWhatsapp className="text-white w-6 h-6" />
+            </a>
           </div>
         </div>
         {/* form */}

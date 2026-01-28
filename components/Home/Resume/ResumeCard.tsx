@@ -1,15 +1,44 @@
 'use client'
 import React from 'react'
-import { IconType } from 'react-icons';
+import { IconType } from 'react-icons'
+import { FaCodepen, FaReact } from 'react-icons/fa'
+import { BiBadge } from 'react-icons/bi'
+import { FaGraduationCap } from 'react-icons/fa6'
 
-type Props={
-    role:string;
-    Icon:IconType;
-    date?:string;
-    description:string;
+type Props = {
+  role: string
+  date?: string
+  description: string
 }
 
-const ResumeCard = ({Icon, role, date, description}:Props) => {
+const getIconForRole = (role: string): IconType => {
+  const lower = role.toLowerCase()
+
+  if (
+    lower.includes('diploma') ||
+    lower.includes('higher secondary') ||
+    lower.includes('secondary') ||
+    lower.includes('education') ||
+    lower.includes('college') ||
+    lower.includes('school')
+  ) {
+    return FaGraduationCap
+  }
+
+  if (lower.includes('mern')) {
+    return FaCodepen
+  }
+
+  if (lower.includes('full-stack') || lower.includes('developer')) {
+    return FaReact
+  }
+
+  return BiBadge
+}
+
+const ResumeCard = ({ role, date, description }: Props) => {
+  const Icon = getIconForRole(role)
+
   return (
     <div
       className='flex items-start space-x-3 bg-blue-950/30 hover:bg-blue-950/50 transition-all duration-300 p-3 sm:p-4 rounded-lg border border-cyan-900/30 hover:border-cyan-400/50'

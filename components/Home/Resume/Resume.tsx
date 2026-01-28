@@ -1,9 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import ResumeCard from './ResumeCard'
-import { FaCodepen, FaReact } from 'react-icons/fa'
-import { BiBadge } from 'react-icons/bi'
-import { FaGraduationCap } from 'react-icons/fa6'
 
 const Resume = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -81,7 +78,6 @@ const Resume = () => {
           <TimelineRow
             leftCard={
               <ResumeCard 
-                Icon={FaCodepen} 
                 role="MERN Stack Developer Intern"
                 date='Jul 2025 - Present'
                 description="Developed and maintained full-stack web applications using MongoDB, Express.js, React, and Node.js."
@@ -89,7 +85,6 @@ const Resume = () => {
             }
             rightCard={
               <ResumeCard 
-                Icon={FaReact} 
                 role="Diploma in Information Technology"
                 date='2022 - 2025'
                 description="Government Polytechnic College, Purapuzha"
@@ -99,7 +94,6 @@ const Resume = () => {
           <TimelineRow
             leftCard={
               <ResumeCard 
-                Icon={FaReact} 
                 role="Full-Stack Developer Intern"
                 date='Apr 2024 - May 2024'
                 description="Built responsive user interfaces with React and TypeScript. Integrated RESTful APIs and worked on database optimization."
@@ -107,7 +101,6 @@ const Resume = () => {
             }
             rightCard={
               <ResumeCard 
-                Icon={BiBadge} 
                 role="Higher Secondary Education"
                 date='2022'
                 description="GOVT HSS Muppathadam, Aluva, Kerala"
@@ -118,7 +111,6 @@ const Resume = () => {
             leftCard={<div />}
             rightCard={
               <ResumeCard
-                Icon={FaReact}
                 role="Secondary Education"
                 date='2021'
                 description="GOVT HS West Kadungalloor, Aluva, Kerala"
