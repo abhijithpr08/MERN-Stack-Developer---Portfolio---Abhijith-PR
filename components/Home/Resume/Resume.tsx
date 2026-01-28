@@ -68,10 +68,10 @@ const Resume = () => {
       <div className='w-[95%] lg:w-[80%] mx-auto'>
         <div ref={timelineRef} className='relative'>
           <div className='hidden xl:block absolute left-1/2 -translate-x-1/2 top-0 w-1 h-full bg-cyan-900/30 rounded-full'>
-            <div className='w-full rounded-full transition-all duration-1000 ease-out' style={lineStyle} />
+            <div className='w-full rounded-full transition-all duration-1800 ease-out' style={lineStyle} />
           </div>
           <div className='xl:hidden absolute left-[14px] top-0 w-1 h-full bg-cyan-900/30 rounded-full'>
-            <div className='w-full rounded-full transition-all duration-1000 ease-out' style={lineStyleMobile} />
+            <div className='w-full rounded-full transition-all duration-1800 ease-out' style={lineStyleMobile} />
           </div>
           <div className='xl:hidden'>
             {[12, 28, 44, 60, 76].map((pct) => (
@@ -90,13 +90,12 @@ const Resume = () => {
             rightCard={
               <ResumeCard 
                 Icon={FaReact} 
-                role="Diploma in Information Technology "
+                role="Diploma in Information Technology"
                 date='2022 - 2025'
                 description="Government Polytechnic College, Purapuzha"
               />
             }
           />
-
           <TimelineRow
             leftCard={
               <ResumeCard 
@@ -115,7 +114,6 @@ const Resume = () => {
               />
             }
           />
-
           <TimelineRow
             leftCard={<div />}
             rightCard={
