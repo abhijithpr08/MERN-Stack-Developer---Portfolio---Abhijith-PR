@@ -49,7 +49,7 @@ const Resume = () => {
       {/* Heading */}
       <div className='text-center mb-12'>
         <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
-          My <span className='text-cyan-400'>Resume</span>
+          Career <span className='text-cyan-400'>Overview</span>
         </h1>
         <p className='text-gray-400 mt-3 max-w-2xl mx-auto px-4 text-sm sm:text-base'>
           A timeline of my professional journey and educational background
@@ -58,9 +58,9 @@ const Resume = () => {
 
       {/* Desktop Titles */}
       <div className='hidden xl:grid grid-cols-[1fr_40px_1fr] gap-2 w-[90%] lg:w-[80%] mx-auto mb-6'>
-        <div className='text-center'><span className='text-cyan-400 font-semibold text-lg'>Work Experience</span></div>
+        <div className='text-center'><span className='text-cyan-400 font-semibold text-lg'>Technical Experience</span></div>
         <div />
-        <div className='text-center'><span className='text-cyan-400 font-semibold text-lg'>Education</span></div>
+        <div className='text-center'><span className='text-cyan-400 font-semibold text-lg'>Academic Background</span></div>
       </div>
 
       <div className='w-[95%] lg:w-[80%] mx-auto'>
@@ -123,10 +123,10 @@ const Resume = () => {
         {/* ================= MOBILE LAYOUT ================= */}
         <div className="xl:hidden space-y-10">
 
-          {/* Work Experience */}
+          {/* Technical Experience */}
           <div>
             <h2 className="text-xl font-bold text-cyan-400 mb-4 border-l-4 border-cyan-400 pl-3">
-              Work Experience
+              Technical Experience
             </h2>
 
             <div className="space-y-4">
@@ -144,10 +144,10 @@ const Resume = () => {
             </div>
           </div>
 
-          {/* Education */}
+          {/* Academic Background */}
           <div>
             <h2 className="text-xl font-bold text-cyan-400 mb-4 border-l-4 border-cyan-400 pl-3">
-              Education
+              Academic Background
             </h2>
 
             <div className="space-y-4">
