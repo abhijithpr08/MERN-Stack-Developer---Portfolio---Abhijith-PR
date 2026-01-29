@@ -30,13 +30,13 @@ const Nav = ({ openNav }: Props) => {
         {/* logo */}
         <a href="#">
           <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-col">
-            <FaCode className="w-5 h-5 text-black" />
+            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-col">
+              <FaCode className="w-5 h-5 text-black" />
+            </div>
+            <h1 className="text-xl hidden sm:block md:text-2xl text-white font-bold">
+              Abhijith
+            </h1>
           </div>
-          <h1 className="text-xl hidden sm:block md:text-2xl text-white font-bold">
-            Abhijith
-          </h1>
-        </div>
         </a>
         {/* navlinks */}
         <div className="hidden lg:flex items-center space-x-10">
@@ -61,18 +61,14 @@ const Nav = ({ openNav }: Props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button
-              className="px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm lg:px-6 lg:py-3.5 cursor-pointer rounded-lg border border-blue-500 text-blue-300 hover:bg-blue-900/40 transition-all duration-300"
-            >
+            <button className="px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm lg:px-6 lg:py-3.5 cursor-pointer rounded-lg border border-blue-500 text-blue-300 hover:bg-blue-900/40 transition-all duration-300">
               View Resume
             </button>
           </a>
 
           {/* download cv button */}
           <a href="/Resume/AbhijithPR_Mern Stack Developer.pdf" download>
-            <button
-              className="px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm lg:px-8 lg:py-3.5 cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2"
-            >
+            <button className="px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm lg:px-8 lg:py-3.5 cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2">
               <BiDownload className="w-5 h-5" />
               <span>Download CV</span>
             </button>

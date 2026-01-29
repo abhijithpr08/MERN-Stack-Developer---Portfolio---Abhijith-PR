@@ -9,9 +9,7 @@ interface PageProps {
 const TeamDetailsPage = async ({ params }: PageProps) => {
   const name = params.name;
 
-  return (
-    <div>TeamDetailsPage {name}</div>
-  );
+  return <div>TeamDetailsPage {name}</div>;
 };
 
 export default TeamDetailsPage;

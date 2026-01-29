@@ -1,8 +1,7 @@
-import React from 'react'
-import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
+import React from "react";
 
 const Footer = () => {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-white/10 bg-[#050512]">
@@ -22,7 +21,7 @@ const Footer = () => {
         </p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

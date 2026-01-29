@@ -1,4 +1,4 @@
-""// components/ParticlesHero.tsx
+""; // components/ParticlesHero.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -70,7 +70,7 @@ export default function ParticlesHero() {
       },
       detectRetina: true,
     }),
-    []
+    [],
   );
 
   if (!init) return null;

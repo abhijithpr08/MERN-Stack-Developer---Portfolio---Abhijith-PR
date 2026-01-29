@@ -1,12 +1,20 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
-import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement | null>(null);
-  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [status, setStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +45,10 @@ const Contact = () => {
       })
       .catch((error) => {
         console.log(error);
-        setStatus({ type: "error", message: "Failed to send. Please try again." });
+        setStatus({
+          type: "error",
+          message: "Failed to send. Please try again.",
+        });
       });
   };
 
@@ -61,7 +72,9 @@ const Contact = () => {
             </div>
             <div className="flex items-center space-x-3 mb-4">
               <BiEnvelope className="w-9 h-9 text-cyan-300" />
-              <p className="text-xl font-bold text-gray-400">abhith628@gmail.com</p>
+              <p className="text-xl font-bold text-gray-400">
+                abhith628@gmail.com
+              </p>
             </div>
             <div className="flex items-center space-x-3 mb-4">
               <BiMap className="w-9 h-9 text-cyan-300" />
@@ -157,11 +170,11 @@ const Contact = () => {
 
           <a href="">
             <button
-            type="submit"
-            className="mt-8 px-12 py-4 bg-blue-950 hover:bg-blue-900 transition-all duration-300 text-white rounded-full"
-          >
-            Send Message
-          </button>
+              type="submit"
+              className="mt-8 px-12 py-4 bg-blue-950 hover:bg-blue-900 transition-all duration-300 text-white rounded-full"
+            >
+              Send Message
+            </button>
           </a>
         </form>
       </div>

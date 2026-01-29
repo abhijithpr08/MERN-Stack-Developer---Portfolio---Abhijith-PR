@@ -28,37 +28,131 @@ import { useState } from "react";
 /* ------------------ SKILLS DATA ------------------ */
 
 const skills = [
-  { name: "HTML", icon: <SiHtml5 />, link: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
-  { name: "CSS", icon: <SiCss3 />, link: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
-  { name: "Tailwind CSS", icon: <SiTailwindcss />, link: "https://tailwindcss.com/docs", color: "#38BDF8" },
-  { name: "Bootstrap", icon: <SiBootstrap />, link: "https://getbootstrap.com/docs", color: "#7952B3" },
-  { name: "React.js", icon: <SiReact />, link: "https://react.dev", color: "#61DAFB" },
-  { name: "Next.js", icon: <SiNextdotjs />, link: "https://nextjs.org/docs", color: "#ffffff" },
-  { name: "JavaScript", icon: <SiJavascript />, link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" },
-  { name: "TypeScript", icon: <SiTypescript />, link: "https://www.typescriptlang.org/docs", color: "#3178C6" },
-  { name: "Node.js", icon: <SiNodedotjs />, link: "https://nodejs.org/en/docs", color: "#339933" },
-  { name: "Express.js", icon: <SiExpress />, link: "https://expressjs.com/", color: "#ffffff" },
-  { name: "REST API Dev", icon: <TbApi />, link: "https://restfulapi.net/", color: "#FF6B6B" },
-  { name: "MongoDB", icon: <SiMongodb />, link: "https://www.mongodb.com/docs/", color: "#47A248" },
-  { name: "MySQL", icon: <SiMysql />, link: "https://dev.mysql.com/doc/", color: "#4479A1" },
-  { name: "PostgreSQL", icon: <SiPostgresql />, link: "https://www.postgresql.org/docs/", color: "#336791" },
-  { name: "Redux", icon: <SiRedux />, link: "https://redux.js.org/", color: "#764ABC" },
-  { name: "Git", icon: <SiGit />, link: "https://git-scm.com/docs", color: "#F05032" },
-  { name: "GitHub", icon: <SiGithub />, link: "https://docs.github.com/", color: "#ffffff" },
-  { name: "Postman", icon: <SiPostman />, link: "https://learning.postman.com/", color: "#FF6C37" },
-  { name: "VS Code", icon: <VscVscode />, link: "https://code.visualstudio.com/docs", color: "#007ACC" },
+  {
+    name: "HTML",
+    icon: <SiHtml5 />,
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    color: "#E34F26",
+  },
+  {
+    name: "CSS",
+    icon: <SiCss3 />,
+    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    color: "#1572B6",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <SiTailwindcss />,
+    link: "https://tailwindcss.com/docs",
+    color: "#38BDF8",
+  },
+  {
+    name: "Bootstrap",
+    icon: <SiBootstrap />,
+    link: "https://getbootstrap.com/docs",
+    color: "#7952B3",
+  },
+  {
+    name: "React.js",
+    icon: <SiReact />,
+    link: "https://react.dev",
+    color: "#61DAFB",
+  },
+  {
+    name: "Next.js",
+    icon: <SiNextdotjs />,
+    link: "https://nextjs.org/docs",
+    color: "#ffffff",
+  },
+  {
+    name: "JavaScript",
+    icon: <SiJavascript />,
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    color: "#F7DF1E",
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript />,
+    link: "https://www.typescriptlang.org/docs",
+    color: "#3178C6",
+  },
+  {
+    name: "Node.js",
+    icon: <SiNodedotjs />,
+    link: "https://nodejs.org/en/docs",
+    color: "#339933",
+  },
+  {
+    name: "Express.js",
+    icon: <SiExpress />,
+    link: "https://expressjs.com/",
+    color: "#ffffff",
+  },
+  {
+    name: "REST API Dev",
+    icon: <TbApi />,
+    link: "https://restfulapi.net/",
+    color: "#FF6B6B",
+  },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb />,
+    link: "https://www.mongodb.com/docs/",
+    color: "#47A248",
+  },
+  {
+    name: "MySQL",
+    icon: <SiMysql />,
+    link: "https://dev.mysql.com/doc/",
+    color: "#4479A1",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql />,
+    link: "https://www.postgresql.org/docs/",
+    color: "#336791",
+  },
+  {
+    name: "Redux",
+    icon: <SiRedux />,
+    link: "https://redux.js.org/",
+    color: "#764ABC",
+  },
+  {
+    name: "Git",
+    icon: <SiGit />,
+    link: "https://git-scm.com/docs",
+    color: "#F05032",
+  },
+  {
+    name: "GitHub",
+    icon: <SiGithub />,
+    link: "https://docs.github.com/",
+    color: "#ffffff",
+  },
+  {
+    name: "Postman",
+    icon: <SiPostman />,
+    link: "https://learning.postman.com/",
+    color: "#FF6C37",
+  },
+  {
+    name: "VS Code",
+    icon: <VscVscode />,
+    link: "https://code.visualstudio.com/docs",
+    color: "#007ACC",
+  },
 ];
 
 /* ------------------ PYRAMID ROWS (DESKTOP) ------------------ */
 const rows = [
-  skills.slice(0, 6),   // 6 items
-  skills.slice(6, 12),  // 6 items
+  skills.slice(0, 6), // 6 items
+  skills.slice(6, 12), // 6 items
   skills.slice(12, 17), // 5 items
-  skills.slice(17),     // 4 items
+  skills.slice(17), // 4 items
 ];
 
 /* ------------------ SKILL CARD ------------------ */
-
 
 const SkillCard = ({ skill }: any) => {
   const [hovered, setHovered] = useState(false);
@@ -124,7 +218,10 @@ const Skills = () => {
           {/* PYRAMID → Desktop Only */}
           <div className="hidden xl:flex flex-col items-center gap-10">
             {rows.map((row, rowIndex) => (
-              <div key={rowIndex} className="flex justify-center gap-12 xl:gap-16">
+              <div
+                key={rowIndex}
+                className="flex justify-center gap-12 xl:gap-16"
+              >
                 {row.map((skill) => (
                   <SkillCard key={skill.name} skill={skill} />
                 ))}

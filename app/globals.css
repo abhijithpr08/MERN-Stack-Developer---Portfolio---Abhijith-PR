@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
-/* @import "tw-animate-css"; */
-
-/* @custom-variant dark (&:is(.dark *)); */
 
 html {
   scroll-behavior: smooth;
@@ -32,7 +29,9 @@ html {
   height: 0%;
   background: linear-gradient(to bottom, #22d3ee, #3b82f6, #22d3ee);
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5), 0 0 20px rgba(34, 211, 238, 0.3);
+  box-shadow:
+    0 0 10px rgba(34, 211, 238, 0.5),
+    0 0 20px rgba(34, 211, 238, 0.3);
 }
 
 /* Timeline card animations */
@@ -82,7 +81,7 @@ html {
 }
 
 .timeline-dot::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -119,11 +118,12 @@ html {
 /* Side slides */
 /* Default — NO darkness */
 .project-card {
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
   transform: scale(1);
   opacity: 1;
 }
-
 
 /* Center slide */
 .slick-center .project-card {
@@ -134,22 +134,18 @@ html {
 
 /* Alignment Fix */
 .slick-track {
-  display: flex !important;
-  align-items: center !important;
+  display: flex;
+  align-items: center;
 }
 
 .slick-slide {
-  display: flex !important;
-  justify-content: center !important;
+  display: flex;
+  justify-content: center;
 }
 
-body {
-  cursor: none;
-}
-a button{
+a button {
   cursor: pointer;
 }
-
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -267,6 +263,13 @@ a button{
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Hide default cursor only on desktop */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
   }
 }
 

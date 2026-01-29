@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useRef, useEffect, useCallback } from 'react';
-import gsap from 'gsap';
+import React, { useRef, useEffect, useCallback } from "react";
+import gsap from "gsap";
 
 export interface BlobCursorProps {
-  blobType?: 'circle' | 'square';
+  blobType?: "circle" | "square";
   fillColor?: string;
   trailCount?: number;
   sizes?: number[];
@@ -27,51 +27,61 @@ export interface BlobCursorProps {
 }
 
 export default function BlobCursor({
-  blobType = 'circle',
-  fillColor = '#5227FF',
+  blobType = "circle",
+  fillColor = "#5227FF",
   trailCount = 3,
   sizes = [60, 125, 75],
   innerSizes = [20, 35, 25],
-  innerColor = 'rgba(255,255,255,0.8)',
+  innerColor = "rgba(255,255,255,0.8)",
   opacities = [0.6, 0.6, 0.6],
-  shadowColor = 'rgba(0,0,0,0.75)',
+  shadowColor = "rgba(0,0,0,0.75)",
   shadowBlur = 5,
   shadowOffsetX = 10,
   shadowOffsetY = 10,
-  filterId = 'blob',
+  filterId = "blob",
   filterStdDeviation = 30,
-  filterColorMatrixValues = '1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 35 -10',
+  filterColorMatrixValues = "1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 35 -10",
   useFilter = true,
   fastDuration = 0.1,
   slowDuration = 0.5,
-  fastEase = 'power3.out',
-  slowEase = 'power1.out',
-  zIndex = 100
+  fastEase = "power3.out",
+  slowEase = "power1.out",
+  zIndex = 100,
 }: BlobCursorProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const blobsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [hidden, setHidden] = React.useState(false);
+  const [isDesktop, setIsDesktop] = React.useState(true);
 
-useEffect(() => {
-  const links = document.querySelectorAll("a, button");
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
 
-  const hide = () => setHidden(true);
-  const show = () => setHidden(false);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
 
-  links.forEach(link => {
-    link.addEventListener("mouseenter", hide);
-    link.addEventListener("mouseleave", show);
-  });
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
-  return () => {
-    links.forEach(link => {
-      link.removeEventListener("mouseenter", hide);
-      link.removeEventListener("mouseleave", show);
+  useEffect(() => {
+    const links = document.querySelectorAll("a, button");
+
+    const hide = () => setHidden(true);
+    const show = () => setHidden(false);
+
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", hide);
+      link.addEventListener("mouseleave", show);
     });
-  };
-}, []);
 
-
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener("mouseenter", hide);
+        link.removeEventListener("mouseleave", show);
+      });
+    };
+  }, []);
 
   const updateOffset = useCallback(() => {
     if (!containerRef.current) return { left: 0, top: 0 };
@@ -99,10 +109,11 @@ useEffect(() => {
       });
     };
 
-    window.addEventListener('mousemove', move);
-    return () => window.removeEventListener('mousemove', move);
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
   }, [updateOffset, fastDuration, slowDuration, fastEase, slowEase]);
 
+  if (!isDesktop) return null;
   return (
     <div
       ref={containerRef}
@@ -112,31 +123,34 @@ useEffect(() => {
       {useFilter && (
         <svg className="absolute w-0 h-0">
           <filter id={filterId}>
-            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation={filterStdDeviation} />
+            <feGaussianBlur
+              in="SourceGraphic"
+              result="blur"
+              stdDeviation={filterStdDeviation}
+            />
             <feColorMatrix in="blur" values={filterColorMatrixValues} />
           </filter>
         </svg>
       )}
 
       <div
-  className="pointer-events-none absolute inset-0 overflow-hidden select-none transition-opacity duration-200"
-  style={{
-    filter: useFilter ? `url(#${filterId})` : undefined,
-    opacity: hidden ? 0 : 1,
-  }}
->
-
+        className="pointer-events-none absolute inset-0 overflow-hidden select-none transition-opacity duration-200"
+        style={{
+          filter: useFilter ? `url(#${filterId})` : undefined,
+          opacity: hidden ? 0 : 1,
+        }}
+      >
         {Array.from({ length: trailCount }).map((_, i) => (
           <div
             key={i}
             ref={(el) => {
-  blobsRef.current[i] = el;
-}}
+              blobsRef.current[i] = el;
+            }}
             className="absolute will-change-transform -translate-x-1/2 -translate-y-1/2"
             style={{
               width: sizes[i],
               height: sizes[i],
-              borderRadius: blobType === 'circle' ? '50%' : '0',
+              borderRadius: blobType === "circle" ? "50%" : "0",
               backgroundColor: fillColor,
               opacity: opacities[i],
               boxShadow: `${shadowOffsetX}px ${shadowOffsetY}px ${shadowBlur}px ${shadowColor}`,
@@ -150,7 +164,7 @@ useEffect(() => {
                 top: (sizes[i] - innerSizes[i]) / 2,
                 left: (sizes[i] - innerSizes[i]) / 2,
                 backgroundColor: innerColor,
-                borderRadius: blobType === 'circle' ? '50%' : '0',
+                borderRadius: blobType === "circle" ? "50%" : "0",
               }}
             />
           </div>

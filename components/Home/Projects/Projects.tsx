@@ -1,5 +1,5 @@
 "use client";
-
+import { SiGithub } from "react-icons/si";
 import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
@@ -11,24 +11,28 @@ const Projects = () => {
       src: "/images/project1.png",
       title: "Double Barrel",
       subtitle: "E-Commerce, App",
+      github: "https://github.com/abhijithpr08/double-barrel.git",
     },
     {
       id: 2,
       src: "/images/project2.png",
       title: "agency.ai",
       subtitle: "Apps, UI",
+      github: "https://github.com/abhijithpr08/agency.ai.git",
     },
     {
       id: 3,
       src: "/images/project3.png",
       title: "Student Management",
       subtitle: "Web, Design",
+      github: "https://github.com/abhijithpr08/studentManagement.git",
     },
     {
       id: 4,
       src: "/images/project4.png",
       title: "Weather App",
       subtitle: "App, UI",
+      github: "https://github.com/abhijithpr08/WeatherApp.git",
     },
   ];
 
@@ -103,13 +107,34 @@ const Projects = () => {
                 </div>
 
                 {/* Text */}
-                <div className="relative p-5">
-                  <h1 className="text-xl sm:text-2xl font-semibold text-white tracking-wide">
-                    {project.title}
-                  </h1>
-                  <p className="mt-2 text-sm text-cyan-300 font-medium tracking-wider uppercase">
-                    {project.subtitle}
-                  </p>
+                <div className="relative p-5 flex items-start justify-between">
+                  {/* Left */}
+                  <div>
+                    <h1 className="text-xl sm:text-2xl font-semibold text-white tracking-wide">
+                      {project.title}
+                    </h1>
+                    <p className="mt-2 text-sm text-cyan-300 font-medium tracking-wider uppercase">
+                      {project.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Right GitHub Icon */}
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+      ml-4 p-2 rounded-full
+      bg-white/10 border border-white/10
+      backdrop-blur-md
+      text-white text-lg
+      hover:text-cyan-400
+      hover:bg-cyan-400/20 hover:border-cyan-400/40
+      transition duration-300 hover:scale-110
+    "
+                  >
+                    <SiGithub />
+                  </a>
                 </div>
 
                 {/* Glow Hover Effect */}
