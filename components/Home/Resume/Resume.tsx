@@ -45,7 +45,7 @@ const Resume = () => {
   }
 
   return (
-    <div id='resume' className='pt-10 pb-16'>
+    <div id='experience' className='pt-10 pb-16'>
       {/* Heading */}
       <div className='text-center mb-12'>
         <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>

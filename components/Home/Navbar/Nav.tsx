@@ -28,7 +28,8 @@ const Nav = ({ openNav }: Props) => {
     >
       <div className="flex items-center justify-between w-[90%] h-full mx-auto">
         {/* logo */}
-        <div className="flex items-center space-x-2">
+        <a href="#">
+          <div className="flex items-center space-x-2">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-col">
             <FaCode className="w-5 h-5 text-black" />
           </div>
@@ -36,6 +37,7 @@ const Nav = ({ openNav }: Props) => {
             Abhijith
           </h1>
         </div>
+        </a>
         {/* navlinks */}
         <div className="hidden lg:flex items-center space-x-10">
           {NavLinks.map((link) => {

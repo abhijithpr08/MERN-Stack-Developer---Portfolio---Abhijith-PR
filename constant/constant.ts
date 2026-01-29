@@ -11,8 +11,8 @@ export const NavLinks = [
     },
     {
         id:3,
-        url:"#resume",
-        label:"Resume",
+        url:"#experience",
+        label:"Experience",
     },
     {
         id:4,
