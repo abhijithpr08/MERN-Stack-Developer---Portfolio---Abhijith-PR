@@ -117,11 +117,13 @@ html {
 }
 
 /* Side slides */
+/* Default — NO darkness */
 .project-card {
   transition: transform 0.5s ease, opacity 0.5s ease;
-  transform: scale(0.9);
-  opacity: 0.6;
+  transform: scale(1);
+  opacity: 1;
 }
+
 
 /* Center slide */
 .slick-center .project-card {
@@ -148,21 +150,6 @@ a button{
   cursor: pointer;
 }
 
-
-/* Mobile timeline adjustments */
-@media (max-width: 1280px) {
-  .timeline-line {
-    left: 16px;
-  }
-
-  .timeline-dot {
-    left: 16px;
-  }
-
-  .timeline-connector {
-    display: none;
-  }
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -283,3 +270,31 @@ a button{
   }
 }
 
+/* Desktop only center focus effect */
+@media (min-width: 1076px) {
+  .project-card {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  .slick-center .project-card {
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 10;
+  }
+}
+
+/* Mobile timeline adjustments */
+@media (max-width: 1280px) {
+  .timeline-line {
+    left: 16px;
+  }
+
+  .timeline-dot {
+    left: 16px;
+  }
+
+  .timeline-connector {
+    display: none;
+  }
+}
