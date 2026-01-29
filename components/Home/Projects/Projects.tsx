@@ -74,12 +74,13 @@ const Projects = () => {
             <div key={project.id} className="px-4 py-10">
               <div
                 className="
-      project-card
-      bg-white/5 p-4 rounded-xl backdrop-blur-sm
-      transition-all duration-500 ease-out
-      scale-90 opacity-60
-      hover:scale-[1.18] hover:opacity-100 hover:z-20
-    "
+  project-card
+  bg-white/5 p-4 rounded-xl backdrop-blur-sm
+  transition-all duration-300 ease-out
+  scale-100 opacity-80
+  hover:scale-[1.03] hover:-translate-y-1 hover:opacity-100 hover:z-20
+"
+
               >
                 <Image
                   src={project.src}
