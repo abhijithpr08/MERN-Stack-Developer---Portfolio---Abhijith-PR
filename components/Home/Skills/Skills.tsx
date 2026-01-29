@@ -23,74 +23,30 @@ import {
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbApi } from "react-icons/tb";
+import { useState } from "react";
 
 /* ------------------ SKILLS DATA ------------------ */
+
 const skills = [
-  {
-    name: "HTML",
-    icon: <SiHtml5 />,
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-  },
-  {
-    name: "CSS",
-    icon: <SiCss3 />,
-    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: <SiTailwindcss />,
-    link: "https://tailwindcss.com/docs",
-  },
-  {
-    name: "Bootstrap",
-    icon: <SiBootstrap />,
-    link: "https://getbootstrap.com/docs",
-  },
-  { name: "React.js", icon: <SiReact />, link: "https://react.dev" },
-  { name: "Next.js", icon: <SiNextdotjs />, link: "https://nextjs.org/docs" },
-  {
-    name: "JavaScript",
-    icon: <SiJavascript />,
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  },
-  {
-    name: "TypeScript",
-    icon: <SiTypescript />,
-    link: "https://www.typescriptlang.org/docs",
-  },
-
-  {
-    name: "Node.js",
-    icon: <SiNodedotjs />,
-    link: "https://nodejs.org/en/docs",
-  },
-  { name: "Express.js", icon: <SiExpress />, link: "https://expressjs.com/" },
-  { name: "REST API Dev", icon: <TbApi />, link: "https://restfulapi.net/" },
-  {
-    name: "MongoDB",
-    icon: <SiMongodb />,
-    link: "https://www.mongodb.com/docs/",
-  },
-  { name: "MySQL", icon: <SiMysql />, link: "https://dev.mysql.com/doc/" },
-  {
-    name: "PostgreSQL",
-    icon: <SiPostgresql />,
-    link: "https://www.postgresql.org/docs/",
-  },
-  { name: "Redux", icon: <SiRedux />, link: "https://redux.js.org/" },
-
-  { name: "Git", icon: <SiGit />, link: "https://git-scm.com/docs" },
-  { name: "GitHub", icon: <SiGithub />, link: "https://docs.github.com/" },
-  {
-    name: "Postman",
-    icon: <SiPostman />,
-    link: "https://learning.postman.com/",
-  },
-  {
-    name: "VS Code",
-    icon: <VscVscode />,
-    link: "https://code.visualstudio.com/docs",
-  },
+  { name: "HTML", icon: <SiHtml5 />, link: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
+  { name: "CSS", icon: <SiCss3 />, link: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
+  { name: "Tailwind CSS", icon: <SiTailwindcss />, link: "https://tailwindcss.com/docs", color: "#38BDF8" },
+  { name: "Bootstrap", icon: <SiBootstrap />, link: "https://getbootstrap.com/docs", color: "#7952B3" },
+  { name: "React.js", icon: <SiReact />, link: "https://react.dev", color: "#61DAFB" },
+  { name: "Next.js", icon: <SiNextdotjs />, link: "https://nextjs.org/docs", color: "#ffffff" },
+  { name: "JavaScript", icon: <SiJavascript />, link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" },
+  { name: "TypeScript", icon: <SiTypescript />, link: "https://www.typescriptlang.org/docs", color: "#3178C6" },
+  { name: "Node.js", icon: <SiNodedotjs />, link: "https://nodejs.org/en/docs", color: "#339933" },
+  { name: "Express.js", icon: <SiExpress />, link: "https://expressjs.com/", color: "#ffffff" },
+  { name: "REST API Dev", icon: <TbApi />, link: "https://restfulapi.net/", color: "#FF6B6B" },
+  { name: "MongoDB", icon: <SiMongodb />, link: "https://www.mongodb.com/docs/", color: "#47A248" },
+  { name: "MySQL", icon: <SiMysql />, link: "https://dev.mysql.com/doc/", color: "#4479A1" },
+  { name: "PostgreSQL", icon: <SiPostgresql />, link: "https://www.postgresql.org/docs/", color: "#336791" },
+  { name: "Redux", icon: <SiRedux />, link: "https://redux.js.org/", color: "#764ABC" },
+  { name: "Git", icon: <SiGit />, link: "https://git-scm.com/docs", color: "#F05032" },
+  { name: "GitHub", icon: <SiGithub />, link: "https://docs.github.com/", color: "#ffffff" },
+  { name: "Postman", icon: <SiPostman />, link: "https://learning.postman.com/", color: "#FF6C37" },
+  { name: "VS Code", icon: <VscVscode />, link: "https://code.visualstudio.com/docs", color: "#007ACC" },
 ];
 
 /* ------------------ PYRAMID ROWS (DESKTOP) ------------------ */
@@ -102,32 +58,51 @@ const rows = [
 ];
 
 /* ------------------ SKILL CARD ------------------ */
-const SkillCard = ({ skill }: any) => (
-  <Tilt
-    tiltMaxAngleX={10}
-    tiltMaxAngleY={10}
-    perspective={1000}
-    scale={1.05}
-    transitionSpeed={1200}
-  >
-    <a href={skill.link} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center items-center">
-      <div
-        className="group bg-[#14134145] backdrop-blur-md border border-white/10
-  w-[140px] xl:w-[160px] h-[190px]
-  rounded-2xl flex flex-col items-center justify-center
-  shadow-lg transition duration-300
-  hover:scale-110 hover:-translate-y-3 hover:shadow-cyan-500/30"
+
+
+const SkillCard = ({ skill }: any) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.05}>
+      <a
+        href={skill.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-col justify-center items-center"
       >
-        <div className="text-5xl mb-4 text-gray-400 group-hover:text-cyan-300 transition">
-          {skill.icon}
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="bg-[#14134145] backdrop-blur-md border border-white/10
+          w-[140px] xl:w-[160px] h-[190px]
+          rounded-2xl flex flex-col items-center justify-center
+          shadow-lg transition duration-300
+          hover:scale-110 hover:-translate-y-3"
+          style={{
+            boxShadow: hovered
+              ? `0 0 25px ${skill.color}55`
+              : "0 10px 20px rgba(0,0,0,0.2)",
+          }}
+        >
+          <div
+            className="text-5xl mb-4 transition"
+            style={{ color: hovered ? skill.color : "#9ca3af" }}
+          >
+            {skill.icon}
+          </div>
+
+          <p
+            className="text-sm font-medium text-center transition"
+            style={{ color: hovered ? skill.color : "#c084fc" }}
+          >
+            {skill.name}
+          </p>
         </div>
-        <p className="text-sm text-purple-300 font-medium text-center">
-          {skill.name}
-        </p>
-      </div>
-    </a>
-  </Tilt>
-);
+      </a>
+    </Tilt>
+  );
+};
 
 /* ------------------ MAIN COMPONENT ------------------ */
 const Skills = () => {
