@@ -115,24 +115,7 @@ html {
   left: 100%;
 }
 
-/* Side slides */
-/* Default — NO darkness */
-.project-card {
-  transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* Center slide */
-.slick-center .project-card {
-  transform: scale(1.1);
-  opacity: 1;
-  z-index: 10;
-}
-
-/* Alignment Fix */
+/* ========== SLICK SAFE LAYOUT FIX ========== */
 .slick-track {
   display: flex !important;
   align-items: stretch;
@@ -142,8 +125,12 @@ html {
   height: auto;
 }
 
-.slick-slide>div {
+.slick-slide > div {
   height: 100%;
+}
+
+.project-card {
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 a button {
@@ -277,24 +264,16 @@ a button {
   }
 }
 
-/* Desktop only center focus effect */
 @media (min-width: 1076px) {
-  .project-card {
+  .slick-slide:not(.slick-center) .project-card {
     transform: scale(0.9);
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   .slick-center .project-card {
-    transform: scale(1.1);
+    transform: scale(1.08);
     opacity: 1;
     z-index: 10;
-  }
-}
-
-/* Mobile spacing fix */
-@media (max-width: 768px) {
-  .slick-list {
-    margin: 0 !important;
   }
 }
 
@@ -310,5 +289,12 @@ a button {
 
   .timeline-connector {
     display: none;
+  }
+}
+
+/* Cursor hidden only desktop */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
   }
 }

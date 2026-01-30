@@ -8,7 +8,7 @@ const Projects = () => {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setMounted(true); // Fix Next.js hydration width bug
+    setMounted(true); // Fix Next.js + Slick hydration bug
   }, []);
 
   const projects = [
@@ -57,18 +57,11 @@ const Projects = () => {
     responsive: [
       {
         breakpoint: 1075,
-        settings: {
-          slidesToShow: 2,
-          centerMode: false,
-        },
+        settings: { slidesToShow: 2, centerMode: false },
       },
       {
         breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: false,
-        },
+        settings: { slidesToShow: 1, slidesToScroll: 1, centerMode: false },
       },
     ],
   };
@@ -84,7 +77,7 @@ const Projects = () => {
         {mounted && (
           <Slider {...settings}>
             {projects.map((project) => (
-              <div key={project.id} className="px-3 sm:px-4 py-10">
+              <div key={project.id} className="project-slide px-3 sm:px-4 py-10">
                 <div className="project-card group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.4)] backdrop-blur-lg transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-cyan-500/20 hover:border-cyan-400/40">
 
                   <div className="relative overflow-hidden rounded-xl">
