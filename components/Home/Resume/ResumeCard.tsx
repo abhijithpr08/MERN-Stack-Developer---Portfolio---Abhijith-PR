@@ -17,7 +17,7 @@ const getIconForRole = (role: string): IconType => {
   if (
     lower.includes("diploma") ||
     lower.includes("higher secondary") ||
-    lower.includes("secondary") ||
+    lower.includes("course") ||
     lower.includes("education") ||
     lower.includes("college") ||
     lower.includes("school")

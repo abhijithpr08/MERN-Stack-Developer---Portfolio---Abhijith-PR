@@ -134,13 +134,16 @@ html {
 
 /* Alignment Fix */
 .slick-track {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: stretch;
 }
 
 .slick-slide {
-  display: flex;
-  justify-content: center;
+  height: auto;
+}
+
+.slick-slide>div {
+  height: 100%;
 }
 
 a button {
@@ -261,6 +264,7 @@ a button {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -284,6 +288,13 @@ a button {
     transform: scale(1.1);
     opacity: 1;
     z-index: 10;
+  }
+}
+
+/* Mobile spacing fix */
+@media (max-width: 768px) {
+  .slick-list {
+    margin: 0 !important;
   }
 }
 

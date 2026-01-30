@@ -99,9 +99,9 @@ const Resume = () => {
             }
             rightCard={
               <ResumeCard
-                role="Diploma in Information Technology"
-                date="2022 - 2025"
-                description="Government Polytechnic College, Purapuzha"
+                role="ME(A)RN Stack Development Course "
+                date="Jul 2025 - Jan 2026"
+                description="Synnefo Solutions"
               />
             }
           />
@@ -116,9 +116,9 @@ const Resume = () => {
             }
             rightCard={
               <ResumeCard
-                role="Higher Secondary Education"
-                date="2022"
-                description="GOVT HSS Muppathadam, Aluva, Kerala"
+                role="Diploma in Information Technology"
+                date="2022 - 2025"
+                description="Government Polytechnic College, Purapuzha"
               />
             }
           />
@@ -127,9 +127,9 @@ const Resume = () => {
             leftCard={<div />}
             rightCard={
               <ResumeCard
-                role="Secondary Education"
-                date="2021"
-                description="GOVT HS West Kadungalloor, Aluva, Kerala"
+                role="Higher Secondary Education"
+                date="2022"
+                description="GOVT HSS Muppathadam, Aluva, Kerala"
               />
             }
           />
@@ -166,6 +166,11 @@ const Resume = () => {
 
             <div className="space-y-4">
               <ResumeCard
+                role="ME(A)RN Stack Development Course "
+                date="Jul 2025 - Jan 2026"
+                description="Synnefo Solutions"
+              />
+              <ResumeCard
                 role="Diploma in Information Technology"
                 date="2022 - 2025"
                 description="Government Polytechnic College, Purapuzha"
@@ -175,12 +180,6 @@ const Resume = () => {
                 role="Higher Secondary Education"
                 date="2022"
                 description="GOVT HSS Muppathadam, Aluva, Kerala"
-              />
-
-              <ResumeCard
-                role="Secondary Education"
-                date="2021"
-                description="GOVT HS West Kadungalloor, Aluva, Kerala"
               />
             </div>
           </div>
